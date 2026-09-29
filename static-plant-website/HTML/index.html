@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plants</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <h1>Plant Database</h1>
+    
+    <main>
+        <section class="controls">
+            <label for="search">Search Plants:</label>
+            <input type="text" id="search" placeholder="Enter a plant name">
+
+            <label for="sunlight-filter">Filter by sunlight:</label>
+            <select id="sunlight-filter">
+                <option value="">All Sunlight</option>
+                <option value="Full Sun">Full Sun</option>
+                <option value="Partial Shade">Partial Shade</option>
+                <option value="Bright indirect light">Bright Indirect Light</option>
+            </select>
+
+            <label for="bloom-season-filter">Filter by bloom season:</label>
+            <select id="bloom-season-filter">
+                <option value="">All Seasons</option>
+                <option value="Spring">Spring</option>
+                <option value="Summer">Summer</option>
+                <option value="Fall">Fall</option>
+                <option value="Year-round">Year-round</option>
+            </select>
+
+
+            <button id="submit-button">Submit</button>
+            <button id="reset-button">Reset Filters</button>
+        </section>
+
+        <p id="plant-counter"></p>
+        <section id="plant-list"></section>
+
+    </main>
+    <!-- JS -->
+    <script src="../JS/script.js"></script>
+</body>
+</html>
