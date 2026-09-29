@@ -88,6 +88,52 @@ const plants = [
         height: "3 feet",
         bloomSeason: "Fall",
         wildlifeBenefits:"Produces natural insect repellent."
+    },
+    {
+        name: "Barley",
+        scientificName: "Hordeum vulgare",
+        sunlight: "Full sun",
+        soil: "Well-drained",
+        height: "3 feet",
+        bloomSeason: "Spring to Summer",
+        wildlifeBenefits:"Provides food and habitat for local wildlife."
+    },
+    {
+        name: "Basil",
+        scientificName: "Ocimum basilicum",
+        sunlight: "Full sun to partial shade",
+        soil: "Well-drained",
+        height: "2 feet",
+        bloomSeason: "Summer",
+        wildlifeBenefits:"Attracts pollinators and provides habitat for local wildlife."
+
+    },
+    {
+        name: "Quinoa",
+        scientificName: "Chenopodium quinoa",
+        sunlight: "Full sun",
+        soil: "Well-drained",
+        height: "4 feet",
+        bloomSeason: "Summer to Fall",
+        wildlifeBenefits:"Provides food and habitat for local wildlife."
+    },
+    {
+        name: "Watermelon",
+        scientificName: "Citrullus lanatus",
+        sunlight: "Full sun",
+        soil: "Well-drained",
+        height: "3 feet",
+        bloomSeason: "Summer",
+        wildlifeBenefits:"Provides food and habitat for local wildlife."
+    },
+    {
+        name: "Green Beans",
+        scientificName: "Phaseolus vulgaris",
+        sunlight: "Full sun",
+        soil: "Well-drained",
+        height: "3 feet",
+        bloomSeason: "Summer",
+        wildlifeBenefits:"Provides food and habitat for local wildlife."
     }
 
 ];
@@ -111,7 +157,7 @@ function displayPlants(plantsList) {
         plantCard.innerHTML = `
             <h3><b>${plant.name}</b> (${plant.scientificName})</h3>
             <p><b>Sunlight:</b> ${plant.sunlight}</p>
-            <p><b>Soil:</b>> ${plant.soil}</p>
+            <p><b>Soil:</b> ${plant.soil}</p>
             <p><b>Height:</b> ${plant.height}</p>
             <p><b>Bloom Season:</b> ${plant.bloomSeason}</p>
             <p><b>Wildlife Benefits:</b> ${plant.wildlifeBenefits}</p>
