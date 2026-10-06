@@ -134,6 +134,51 @@ const plants = [
         height: "3 feet",
         bloomSeason: "Summer",
         wildlifeBenefits:"Provides food and habitat for local wildlife."
+    },
+    {
+        name: "tomato",
+        scientificName: "Solanum lycopersicum",
+        sunlight: "Full sun",
+        soil: "Well-drained",
+        height: "3 feet",
+        bloomSeason: "Summer",
+        wildlifeBenefits:"Provides food and habitat for local wildlife."    
+    },
+    {
+        name: "garden pea",
+        scientificName: "Pisum sativum",
+        sunlight: "Full sun to partial shade",
+        soil: "Well-drained",
+        height: "3 feet",
+        bloomSeason: "Spring to Summer",
+        wildlifeBenefits:"Provides food and habitat for local wildlife."
+    },
+    {
+        name: "endive",
+        scientificName: "Cichorium endivia",
+        sunlight: "Full sun to partial shade",
+        soil: "Well-drained",
+        height: "1 foot",
+        bloomSeason: "Spring to Fall",
+        wildlifeBenefits:"Provides food and habitat for local wildlife."
+    },
+    {
+        name: "eulalia",
+        scientificName: "Eulalia dactyloides",
+        sunlight: "Full sun to partial shade",
+        soil: "Well-drained",
+        height: "4 feet",
+        bloomSeason: "Summer to Fall",
+        wildlifeBenefits:"Provides food and habitat for local wildlife."
+    },
+    {
+        name: "eucalyptus",
+        scientificName: "Eucalyptus globulus",
+        sunlight: "Full sun",
+        soil: "Well-drained",
+        height: "6 feet",
+        bloomSeason: "Spring to Summer",
+        wildlifeBenefits:"Provides food and habitat for local wildlife."
     }
 
 ];
@@ -221,3 +266,85 @@ const totalHeight = plants.reduce((total, plant) => {
 
 document.getElementById("alphabetical-button").addEventListener("click", sortAlphabetically);
 document.getElementById("height-button").addEventListener("click", filterByHeight);
+
+
+function calculatePlantStats() {
+    const numberOfPlants = plants.length;
+    const totalHeight = plants.reduce((total, plant) => {
+        return total + parseFloat(plant.height);
+    }, 0);
+
+    const averageHeight = totalHeight / plants.length;
+    const tallestPlant = plants.reduce((tallest, plant) => {
+        if (parseFloat(plant.height) > parseFloat(tallest.height)) {
+            return plant;
+        }
+        return tallest;
+    });
+
+    const shortestPlant = plants.reduce((shortest, plant) => {
+        if (parseFloat(plant.height) < parseFloat(shortest.height)) {
+            return plant;
+        }
+        return shortest;
+    });
+
+    const bloomSeasonCount = plants.reduce((counts, plant) => {
+        const season = plant.bloomSeason;
+
+        if (counts[season]) {
+            counts[season]++;
+        } else {
+            counts[season] = 1;
+        }
+        return counts;
+    }, 
+    {
+    });
+
+
+    const sunlightCount = plants.reduce((counts, plant) => {
+        const sunlight = plant.sunlight;
+
+        if (counts[sunlight]) {
+            counts[sunlight]++;
+        } else {
+            counts[sunlight] = 1;
+        }
+        return counts;
+    }, 
+    {
+
+    });
+
+
+    document.getElementById("number-of-plants").textContent =
+        numberOfPlants;
+    document.getElementById("average-height").textContent =
+        averageHeight.toFixed(2) + " feet";
+    document.getElementById("tallest-plant").textContent =
+        tallestPlant.name + " - " + tallestPlant.height;
+    document.getElementById("shortest-plant").textContent =
+        shortestPlant.name + " - " + shortestPlant.height;
+
+
+    const bloomResults = document.getElementById("bloom-results");
+    bloomResults.innerHTML = "";
+
+    for (const season in bloomSeasonCount) {
+        bloomResults.innerHTML +=
+            `<p>${season}: ${bloomSeasonCount[season]}</p>`;
+    }
+
+
+
+    const sunlightResults = document.getElementById("sunlight-results");
+    sunlightResults.innerHTML = "";
+
+    for (const sunlight in sunlightCount) {
+        sunlightResults.innerHTML +=
+            `<p>${sunlight}: ${sunlightCount[sunlight]}</p>`;
+    }
+}
+
+calculatePlantStats();
