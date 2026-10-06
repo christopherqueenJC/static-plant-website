@@ -193,3 +193,31 @@ resetButton.addEventListener("click", () => {
     bloomSeasonFilter.value = "";
     displayPlants(plants);
 });
+
+const plantNames = plants.map(plant => plant.name);
+const foundPlant = plants.find(plant => plant.name === "Sunflower");
+
+function sortAlphabetically() {
+    const sortedPlants = [...plants];
+
+    sortedPlants.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+    });
+
+    displayPlants(sortedPlants);
+}
+
+function filterByHeight() {
+    const filteredPlants = plants.filter(plant => {
+        return parseFloat(plant.height) <= 3;
+    });
+
+    displayPlants(filteredPlants);
+}
+
+const totalHeight = plants.reduce((total, plant) => {
+    return total + parseFloat(plant.height);
+}, 0);
+
+document.getElementById("alphabetical-button").addEventListener("click", sortAlphabetically);
+document.getElementById("height-button").addEventListener("click", filterByHeight);
